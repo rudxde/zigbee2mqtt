@@ -1,4 +1,4 @@
-const utils = require('../../lib/util/utils');
+const utils = require('../../src/util/utils');
 const spy = jest.spyOn(utils.default, 'sleep');
 
 export function mock() {

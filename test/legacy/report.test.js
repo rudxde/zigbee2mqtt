@@ -11,8 +11,8 @@ zigbeeHerdsman.returnDevices.push('0x000b57fffec6a5b7');
 zigbeeHerdsman.returnDevices.push('0x0017880104e45524');
 zigbeeHerdsman.returnDevices.push('0x90fd9ffffe4b64ax');
 const MQTT = require('../stub/mqtt');
-const settings = require('../../lib/util/settings');
-const Controller = require('../../lib/controller');
+const settings = require('../../src/util/settings');
+const Controller = require('../../src/controller');
 const flushPromises = require('../lib/flushPromises');
 const wait = (ms) => new Promise((resolve) => setTimeout(resolve, ms));
 

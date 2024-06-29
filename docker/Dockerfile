@@ -1,36 +1,23 @@
-FROM alpine:3.18.4 as base
+FROM node:20-alpine as base
 
 WORKDIR /app
-RUN apk add --no-cache tzdata eudev tini nodejs
+RUN apk add --no-cache tzdata eudev tini make gcc g++ python3 linux-headers
 
-# Dependencies and build
-FROM base as dependencies_and_build
+FROM base as build
 
-COPY package*.json tsconfig.json index.js ./
-COPY lib ./lib
+COPY package*.json ./
+RUN npm ci --no-audit --no-optional --no-update-notifier
+COPY tsconfig.json ./
+COPY src ./src
+RUN npm run build
 
-RUN apk add --no-cache --virtual .buildtools make gcc g++ python3 linux-headers git npm && \
-    npm ci --production --no-audit --no-optional --no-update-notifier && \
-    # Serialport needs to be rebuild for Alpine https://serialport.io/docs/9.x.x/guide-installation#alpine-linux
-    npm rebuild --build-from-source && \
-    apk del .buildtools
-
-# Release
 FROM base as release
 
-COPY --from=dependencies_and_build /app/node_modules ./node_modules
-COPY dist ./dist
-COPY package.json LICENSE index.js data/configuration.yaml data/configuration.example.yaml ./
-
-COPY docker/docker-entrypoint.sh /usr/local/bin/
-RUN chmod +x /usr/local/bin/docker-entrypoint.sh
-
+COPY package*.json LICENSE ./
+RUN npm ci --omit=dev --no-audit --no-optional --no-update-notifier && \
+    # Serialport needs to be rebuild for Alpine https://serialport.io/docs/9.x.x/guide-installation#alpine-linux
+    npm rebuild --build-from-source
+COPY --from=build /app/dist ./dist
 RUN mkdir /app/data
-
-ARG COMMIT
-RUN echo "$COMMIT" > dist/.hash
-
 ENV NODE_ENV production
-
-ENTRYPOINT ["docker-entrypoint.sh"]
-CMD [ "/sbin/tini", "--", "node", "index.js"]
+ENTRYPOINT ["/sbin/tini", "--", "npm", "start"]

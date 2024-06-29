@@ -2,12 +2,12 @@ const data = require('./stub/data');
 const sleep = require('./stub/sleep');
 const logger = require('./stub/logger');
 const zigbeeHerdsman = require('./stub/zigbeeHerdsman');
-const {loadTopicGetSetRegex} = require('../lib/extension/publish');
+const {loadTopicGetSetRegex} = require('../src/extension/publish');
 const zigbeeHerdsmanConverters = require('zigbee-herdsman-converters');
 const stringify = require('json-stable-stringify-without-jsonify');
 const MQTT = require('./stub/mqtt');
-const settings = require('../lib/util/settings');
-const Controller = require('../lib/controller');
+const settings = require('../src/util/settings');
+const Controller = require('../src/controller');
 const flushPromises = require('./lib/flushPromises');
 
 const mocksClear = [MQTT.publish, logger.warning, logger.debug];

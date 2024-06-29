@@ -1,8 +1,8 @@
 require('./stub/logger');
 require('./stub/data');
-const data = require('../lib/util/data');
-const utils = require('../lib/util/utils').default;
-const settings = require('../lib/util/settings.ts');
+const data = require('../src/util/data');
+const utils = require('../src/util/utils').default;
+const settings = require('../src/util/settings.ts');
 const fs = require('fs');
 const configurationFile = data.joinPath('configuration.yaml');
 const devicesFile = data.joinPath('devices.yaml');

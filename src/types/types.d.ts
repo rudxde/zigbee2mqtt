@@ -1,5 +1,5 @@
 /* eslint-disable camelcase */
-import {LogLevel} from 'lib/util/settings';
+import {LogLevel} from 'src/util/settings';
 import type {
     Device as ZHDevice,
     Group as ZHGroup,
@@ -23,13 +23,13 @@ import type * as zhc from 'zigbee-herdsman-converters';
 
 import type * as ZHEvents from 'zigbee-herdsman/dist/controller/events';
 
-import type TypeEventBus from 'lib/eventBus';
-import type TypeMQTT from 'lib/mqtt';
-import type TypeState from 'lib/state';
-import type TypeZigbee from 'lib/zigbee';
-import type TypeDevice from 'lib/model/device';
-import type TypeGroup from 'lib/model/group';
-import type TypeExtension from 'lib/extension/extension';
+import type TypeEventBus from 'src/eventBus';
+import type TypeMQTT from 'src/mqtt';
+import type TypeState from 'src/state';
+import type TypeZigbee from 'src/zigbee';
+import type TypeDevice from 'src/model/device';
+import type TypeGroup from 'src/model/group';
+import type TypeExtension from 'src/extension/extension';
 
 import type {QoS} from 'mqtt-packet';
 

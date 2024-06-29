@@ -36,6 +36,6 @@ const mock = {
     end: jest.fn(),
 };
 
-jest.mock('../../lib/util/logger', () => (mock));
+jest.mock('../../src/util/logger', () => (mock));
 
 module.exports = {...mock};

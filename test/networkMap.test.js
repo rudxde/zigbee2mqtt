@@ -14,8 +14,8 @@ zigbeeHerdsman.returnDevices.push(CC2530_ROUTER.ieeeAddr);
 zigbeeHerdsman.returnDevices.push(unsupported_router.ieeeAddr);
 zigbeeHerdsman.returnDevices.push(external_converter_device.ieeeAddr)
 const MQTT = require('./stub/mqtt');
-const settings = require('../lib/util/settings');
-const Controller = require('../lib/controller');
+const settings = require('../src/util/settings');
+const Controller = require('../src/controller');
 const flushPromises = require('./lib/flushPromises');
 const mocksClear = [MQTT.publish, logger.warning, logger.debug];
 const setTimeoutNative = setTimeout;

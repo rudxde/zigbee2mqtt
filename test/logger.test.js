@@ -22,10 +22,10 @@ describe('Logger', () => {
     beforeEach(async () => {
         data.writeDefaultConfiguration();
         jest.resetModules();
-        settings = require('../lib/util/settings');
+        settings = require('../src/util/settings');
         settings.set(['advanced', 'log_directory'], dir.name + '/%TIMESTAMP%');
         settings.reRead();
-        logger = require('../lib/util/logger').default;
+        logger = require('../src/util/logger').default;
         logger.init();
         consoleWriteSpy.mockClear();
     });

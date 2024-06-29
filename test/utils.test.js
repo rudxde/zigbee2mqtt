@@ -1,4 +1,4 @@
-const utils = require('../lib/util/utils').default;
+const utils = require('../src/util/utils').default;
 const version = require('../package.json').version;
 const versionHerdsman = require('../node_modules/zigbee-herdsman/package.json').version;
 const versionHerdsmanConverters = require('../node_modules/zigbee-herdsman-converters/package.json').version;

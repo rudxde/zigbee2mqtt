@@ -3,10 +3,10 @@ import logger from './stub/logger';
 import MQTT from './stub/mqtt';
 import zigbeeHerdsman from './stub/zigbeeHerdsman';
 
-import utils from '../lib/util/utils';
-import * as settings from '../lib/util/settings';
-import Controller from '../lib/controller';
-import Availability from '../lib/extension/availability';
+import utils from '../src/util/utils';
+import * as settings from '../src/util/settings';
+import Controller from '../src/controller';
+import Availability from '../src/extension/availability';
 import flushPromises from './lib/flushPromises';
 import stringify from 'json-stable-stringify-without-jsonify';
 

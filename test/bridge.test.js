@@ -2,12 +2,12 @@ const data = require('./stub/data');
 const logger = require('./stub/logger');
 const zigbeeHerdsman = require('./stub/zigbeeHerdsman');
 const MQTT = require('./stub/mqtt');
-const settings = require('../lib/util/settings');
-const Controller = require('../lib/controller');
+const settings = require('../src/util/settings');
+const Controller = require('../src/controller');
 const fs = require('fs');
 const path = require('path');
 const flushPromises = require('./lib/flushPromises');
-const utils = require('../lib/util/utils').default;
+const utils = require('../src/util/utils').default;
 const stringify = require('json-stable-stringify-without-jsonify');
 
 const mockJSZipFile = jest.fn();

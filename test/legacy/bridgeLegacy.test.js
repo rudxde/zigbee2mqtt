@@ -5,8 +5,8 @@ const MQTT = require('../stub/mqtt');
 const stringify = require('json-stable-stringify-without-jsonify');
 const path = require('path');
 const mockExit = jest.spyOn(process, 'exit').mockImplementation(() => {});
-const settings = require('../../lib/util/settings');
-const Controller = require('../../lib/controller');
+const settings = require('../../src/util/settings');
+const Controller = require('../../src/controller');
 const flushPromises = require('../lib/flushPromises');
 
 
@@ -16,7 +16,7 @@ describe('Bridge legacy', () => {
 
     beforeAll(async () => {
         jest.useFakeTimers();
-        version = await require('../../lib/util/utils').default.getZigbee2MQTTVersion();
+        version = await require('../../src/util/utils').default.getZigbee2MQTTVersion();
         controller = new Controller(jest.fn(), jest.fn());
         await controller.start();
     })

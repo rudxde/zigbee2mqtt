@@ -1,5 +1,5 @@
 const tmp = require('tmp');
-const yaml = require('../../lib/util/yaml').default;
+const yaml = require('../../src/util/yaml').default;
 const path = require('path');
 const fs = require('fs');
 const stringify = require('json-stable-stringify-without-jsonify');
@@ -279,7 +279,7 @@ function writeDefaultState() {
     fs.writeFileSync(path.join(mockDir, 'state.json'), stringify(defaultState));
 }
 
-jest.mock('../../lib/util/data', () => ({
+jest.mock('../../src/util/data', () => ({
     joinPath: (file) => require('path').join(mockDir, file),
     getPath: () => mockDir,
 }));

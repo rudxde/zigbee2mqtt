@@ -1,12 +1,12 @@
 const data = require('./stub/data');
-const settings = require('../lib/util/settings');
+const settings = require('../src/util/settings');
 const stringify = require('json-stable-stringify-without-jsonify');
 const logger = require('./stub/logger');
 const zigbeeHerdsman = require('./stub/zigbeeHerdsman');
 const flushPromises = require('./lib/flushPromises');
 const MQTT = require('./stub/mqtt');
 const sleep = require('./stub/sleep');
-const Controller = require('../lib/controller');
+const Controller = require('../src/controller');
 
 describe('HomeAssistant extension', () => {
     let version;
@@ -45,7 +45,7 @@ describe('HomeAssistant extension', () => {
     });
 
     beforeAll(async () => {
-        z2m_version = (await require('../lib/util/utils').default.getZigbee2MQTTVersion()).version;
+        z2m_version = (await require('../src/util/utils').default.getZigbee2MQTTVersion()).version;
         origin = {name: 'Zigbee2MQTT', sw: z2m_version, url: 'https://www.zigbee2mqtt.io'};
         version = `Zigbee2MQTT ${z2m_version}`;
         jest.useFakeTimers();

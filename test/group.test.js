@@ -12,9 +12,9 @@ zigbeeHerdsman.returnDevices.push('0x000b57fffec6a5b7');
 zigbeeHerdsman.returnDevices.push('0x0017880104e45724');
 
 const MQTT = require('./stub/mqtt');
-const Controller = require('../lib/controller');
+const Controller = require('../src/controller');
 const flushPromises = require('./lib/flushPromises');
-const settings = require('../lib/util/settings');
+const settings = require('../src/util/settings');
 
 describe('Groups', () => {
     let controller;

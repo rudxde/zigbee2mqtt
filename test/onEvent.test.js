@@ -4,8 +4,8 @@ const zigbeeHerdsman = require('./stub/zigbeeHerdsman');
 zigbeeHerdsman.returnDevices.push('0x00124b00120144ae');
 zigbeeHerdsman.returnDevices.push('0x0017880104e45560');
 const MQTT = require('./stub/mqtt');
-const settings = require('../lib/util/settings');
-const Controller = require('../lib/controller');
+const settings = require('../src/util/settings');
+const Controller = require('../src/controller');
 const flushPromises = require('./lib/flushPromises');
 
 const mocksClear = [MQTT.publish, logger.warning, logger.debug];

@@ -20,10 +20,10 @@
     "cc2531"
   ],
   "scripts": {
-    "build": "tsc && node index.js writehash",
-    "build-watch": "tsc --watch",
-    "eslint": "eslint lib/ --max-warnings=0",
-    "start": "node index.js",
+    "build": "tsc -p .",
+    "build-watch": "tsc -p . --watch",
+    "lint": "eslint src/ --max-warnings=0",
+    "start": "node --enable-source-maps dist/main.js",
     "test-with-coverage": "jest test --silent --maxWorkers=50% --coverage",
     "test": "jest test --silent --maxWorkers=50%",
     "test-watch": "jest test --silent --maxWorkers=25% --watch"
@@ -101,8 +101,8 @@
       }
     },
     "collectCoverageFrom": [
-      "lib/**/*.js",
-      "lib/**/*.ts"
+      "src/**/*.js",
+      "src/**/*.ts"
     ]
   },
   "bin": {
